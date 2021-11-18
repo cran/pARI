@@ -1,5 +1,6 @@
-0d9f5a681e456272f8e4ed0a6390be2d *DESCRIPTION
+ce4ae90f10443ad2afb1a2f731288886 *DESCRIPTION
 2423c5f4aabdc60d384769b593ff8e90 *NAMESPACE
+aa4d835a8131be8f2c4a746fde1db512 *NEWS.md
 ed68039deecb9c37071c952e730641aa *R/RcppExports.R
 904f77e0a21a78d38dd9914068cfa96e *R/Statmap.R
 385b8e9835b4e3c7a83cafaa9079da0e *R/TDPerm.R
@@ -14,7 +15,7 @@ e22f1c1d47f3148f91e71cb5841b777e *R/lambdaOpt.R
 dbb803ab8e52eff67502303763ec854d *R/pARI-package.R
 cd72c774d5743783fc30185a58b01cdf *R/pARI.R
 727b9eccc83f1689778d5e621df20a7a *R/pARIbrain.R
-e45aecf2aed07f974cf926456d6830cd *R/permTest.R
+75f3690db3457d1c1db66ffca4f14751 *R/permTest.R
 91725e63d3b8ec48f6f2e1fecc28d948 *R/plotNullDistribution.R
 11108c50a0c62b79f22042ff895ef85c *R/rowVariance.R
 13b570bae2500f48e3dbff7002525505 *R/signTest.R
@@ -25,7 +26,7 @@ e45aecf2aed07f974cf926456d6830cd *R/permTest.R
 8e2c7d9ad7d037c55f52c98cccee81f6 *build/vignette.rds
 9949e8d83b4f21fff4c6f25268fa6a03 *inst/doc/pARI_vignette.R
 32854f9673f6a27e929029230d87627a *inst/doc/pARI_vignette.Rmd
-1e85f093969d0325d0d57e086e76f570 *inst/doc/pARI_vignette.html
+8f16c55af33d04175d7580241be70428 *inst/doc/pARI_vignette.html
 d873731aa7c9e509bf094e30bee9a61f *inst/extdata/vignettes_data/TD_parametric_genetic.RData
 3ca80d4436452aa0be5a9a26dd3f27e0 *inst/extdata/vignettes_data/TD_permutation_genetic.RData
 0e8c39ffc4c79f59cf7ba86b338d6434 *man/Statmap.Rd
@@ -37,7 +38,7 @@ d873731aa7c9e509bf094e30bee9a61f *inst/extdata/vignettes_data/TD_parametric_gene
 1da79d8f060b6e05b41e23b1a3a6d565 *man/oneSamplePar.Rd
 bd320320355872d8da202b5ef928290b *man/pARI.Rd
 4ee2a01c16be68526f522c527708f15a *man/pARIbrain.Rd
-b682d8e7fe9811660dcb093b621ae9c1 *man/permTest.Rd
+e01ef8278b7ba406e48e02747b100796 *man/permTest.Rd
 5b3e229edfa9e43416ef38fb9c1ec03e *man/plotNullDistribution.Rd
 853ccf673a2f39bc3235c959dd5e7a5d *man/rowVariance.Rd
 1eed6a1225c90078cba9fa36396dd618 *man/signTest.Rd
@@ -46,9 +47,9 @@ ffacd6444cd883873ad51171ccf80731 *man/simulateData.Rd
 61059660eb073d93e00e8ee054237071 *src/Makevars.win
 ab64ad2250aadc3bbb8355521691a336 *src/RcppExports.cpp
 64c6a84097a698e4b59056f2a64fed8c *src/colSortC.cpp
-bb137af2128dc326510d6b0e6e514a50 *src/lambdaCalibrate.cpp
+a0bc3b365bb547942194d384ba577f21 *src/lambdaCalibrate.cpp
 cc05f970ef4a5feaf6220e1540161d91 *src/permDiscoveries.cpp
-bcfb3d051010162981920ec6899ae2d9 *src/permTest.cpp
+381f00061d2c28e5e4e1817c63fc2e87 *src/permTest.cpp
 a2c365cfce9212f6dc72ec5b2a699e3b *src/rowSortC.cpp
 133d250ad9d41ed35feb31e1ed87b1cf *src/signFlip.cpp
 32854f9673f6a27e929029230d87627a *vignettes/pARI_vignette.Rmd
