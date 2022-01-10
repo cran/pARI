@@ -77,6 +77,6 @@ out
 #  data(Auditory_mask)
 
 ## ---- eval = FALSE------------------------------------------------------------
-#  auditory_out <- pARIbrain(copes = Auditory_copes, cluster = Auditory_clusterTH3_2, mask = Auditory_mask, alpha = 0.05, silent = TRUE)
+#  auditory_out <- pARIbrain(copes = Auditory_copes, clusters = Auditory_clusterTH3_2, mask = Auditory_mask, alpha = 0.05, silent = TRUE)
 #  auditory_out$out
 

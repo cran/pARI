@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2021-11-18" />
+<meta name="date" content="2022-01-10" />
 
 <title>pARI package</title>
 
@@ -330,7 +330,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">pARI package</h1>
-<h4 class="date">2021-11-18</h4>
+<h4 class="date">2022-01-10</h4>
 
 
 
@@ -359,19 +359,19 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p><code>pARI</code> then computes the lower bound for the number of true discoveries inside the set containing the first <span class="math inline">\(200\)</span> features. The user must specify the cluster in the <code>ix</code> set, i.e., from <span class="math inline">\(1\)</span> to <span class="math inline">\(200\)</span> in this case. We apply the one-sample t-test for each feature.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>out &lt;-<span class="st"> </span><span class="kw">pARI</span>(<span class="dt">X =</span> datas, <span class="dt">ix =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>), <span class="dt">test.type =</span> <span class="st">&quot;one_sample&quot;</span>, <span class="dt">seed =</span> <span class="dv">123</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>out<span class="op">$</span>TDP</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">#&gt; [1] 0.455</span></span></code></pre></div>
-<p>Therefore, we can say that at least 45.5 of features are truly significant inside the <code>ix</code> cluster.</p>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">#&gt; [1] 0.68</span></span></code></pre></div>
+<p>Therefore, we can say that at least 68 of features are truly significant inside the <code>ix</code> cluster.</p>
 <p>However, the <code>pARI</code> function can analyzed directly the matrix of permuted p-values. We can compute it by <code>signTest</code> function:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>out &lt;-<span class="st"> </span><span class="kw">signTest</span>(<span class="dt">X =</span> datas, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">rand =</span> F)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>P &lt;-<span class="st"> </span><span class="kw">cbind</span>(out<span class="op">$</span>pv, out<span class="op">$</span>pv_H0)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">pARI</span>(<span class="dt">pvalues =</span> P, <span class="dt">ix =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">200</span>),<span class="dt">test.type =</span> <span class="st">&quot;one_sample&quot;</span>)<span class="op">$</span>TDP</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">#&gt; [1] 0.465</span></span></code></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co">#&gt; [1] 0.72</span></span></code></pre></div>
 <p>The set of features can also be expressed as a vector with length equals the number of features where different values indicate the different sets. For example, we can construct four random clusters as</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>ix &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">size =</span> <span class="dv">1000</span>, <span class="dt">replace =</span> T)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>out &lt;-<span class="st"> </span><span class="kw">pARI</span>(<span class="dt">pvalues =</span> P, <span class="dt">ix =</span> ix,<span class="dt">test.type =</span> <span class="st">&quot;one_sample&quot;</span>, <span class="dt">clusters =</span> <span class="ot">TRUE</span>)<span class="op">$</span>TDP</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>out</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co">#&gt; [1] 0.07359307 0.03571429 0.04868914 0.02800000</span></span></code></pre></div>
-<p>specifying in the <code>pARI</code> function <code>cluster = TRUE</code>. Then, <code>pARI</code> returns the lower bound for the true discovery proportion for each set of features. We can say that we have at least 7.3593074 of truly active features in the first cluster.</p>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co">#&gt; [1] 0.1298701 0.1150794 0.1198502 0.1000000</span></span></code></pre></div>
+<p>specifying in the <code>pARI</code> function <code>cluster = TRUE</code>. Then, <code>pARI</code> returns the lower bound for the true discovery proportion for each set of features. We can say that we have at least 12.987013 of truly active features in the first cluster.</p>
 </div>
 <div id="gene-cluster-analysis" class="section level3">
 <h3>Gene cluster analysis</h3>
@@ -437,7 +437,7 @@ H_0 : \mu_i = 0
 <li><p>The brain mask <code>Auditory_mask</code>. In this case, we extract it from the group-level analysis by FSL.</p></li>
 </ol>
 <p>Finally, <code>pARIbrain</code> can be used.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>auditory_out &lt;-<span class="st"> </span><span class="kw">pARIbrain</span>(<span class="dt">copes =</span> Auditory_copes, <span class="dt">cluster =</span> Auditory_clusterTH3_<span class="dv">2</span>, <span class="dt">mask =</span> Auditory_mask, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">silent =</span> <span class="ot">TRUE</span>)</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>auditory_out &lt;-<span class="st"> </span><span class="kw">pARIbrain</span>(<span class="dt">copes =</span> Auditory_copes, <span class="dt">clusters =</span> Auditory_clusterTH3_<span class="dv">2</span>, <span class="dt">mask =</span> Auditory_mask, <span class="dt">alpha =</span> <span class="fl">0.05</span>, <span class="dt">silent =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>auditory_out<span class="op">$</span>out</span></code></pre></div>
 <p>For each cluster, <code>pARIbrain</code> returns the lower bounds of the proportion of active voxels, the cluster’s size, the coordinates, and the maximum statistical test value inside the cluster.</p>
 <p>Finally, you can also produce the True Discovey Proportion brain map using the <code>map_TDP</code> function.</p>
