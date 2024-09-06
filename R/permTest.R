@@ -2,20 +2,22 @@
 #' @description Performs permutation-based two-sample t-tests.
 #' @usage permTest(X, B = 1000, alternative = "two.sided", seed = NULL, 
 #' mask = NULL, rand = FALSE, label = NULL)
-#' @param X data matrix where rows represent the \eqn{m} variables and columns the \eqn{n} observations.
-#' @param B numeric value. Number of permutations, default to 1000. 
-#' @param alternative character string. It refers to the alternative hypothesis, must be one of \code{"two.sided"} (default), \code{"greater"} or \code{"lower"}.
-#' @param seed integer value. If you want to specify the seed. Default to @NULL
+#' @param X Data matrix where rows represent the \eqn{m} variables and columns the \eqn{n} observations.
+#' @param B Numeric value. Number of permutations, default to 1000. 
+#' @param alternative Character string. It refers to the alternative hypothesis, must be one of \code{"two.sided"} (default), \code{"greater"} or \code{"lower"}.
+#' @param seed Integer value. If you want to specify the seed. Default to to \code{NULL}
 #' @param mask NIfTI file or character string. 3D array of logical values (i.e. \code{TRUE/FALSE} in/out of the brain). 
-#' Alternatively it may be a (character) NIfTI file name. If \code{mask=NULL}, it is assumed that non of the voxels have to be excluded.
-#' @param rand Boolean value. Default @FALSE. If \code{rand = TRUE}, the p-values are computed by \code{\link{rowRanks}}.
-#' @param label numeric/character vector. Labels of the observations, if \code{NULL} the columns's name are considered. Default @NULL. 
+#' Alternatively it may be a (character) NIfTI file name. If \code{mask=NULL}, it is assumed that none of the voxels have to be excluded.
+#' @param rand Boolean value. Default to \code{FALSE}. If \code{rand = TRUE}, the \eqn{p}-values are computed by \code{rowRanks}.
+#' @param label Numeric/character vector. Labels of the observations, if \code{NULL} the columns's name are considered. Default to \code{NULL}. 
 #' @author Angela Andreella
 #' @return Returns a list with the following objects: 
-#' - \code{Test}: vector with length equals \eqn{m}. Observed two-samples t-tests, one for each \eqn{m} variable, 
-#' - \code{Test_H0}: matrix with dimensions \eqn{m \times B-1}. Test statistics under H0,
-#' - \code{pv}: vector with length equals \eqn{m}. observed p-values, one for each \eqn{m} variable,
-#' - \code{pv_H0} matrix with dimensions \eqn{m \times B-1}. P-values under H0.
+#' \describe{
+#'    \item{Test}{Vector with length equals \eqn{m}. Observed two-samples t-tests, one for each \eqn{m} variable} 
+#'    \item{Test_H0}{Matrix with dimensions \eqn{m \times B-1}. Test statistics under the null hypothesis}
+#'    \item{pv}{Vector with length equals \eqn{m}. Observed \eqn{p}-values, one for each \eqn{m} variable}
+#'    \item{pv_H0}{Matrix with dimensions \eqn{m \times B-1}. \eqn{p}-values under the null hypothesis}
+#' }
 #' @export
 #' @importFrom stats pnorm
 #' @importFrom RNifti readNifti
@@ -62,13 +64,12 @@ permTest <- function(X, B = 1000, alternative = "two.sided", seed = NULL, mask =
   #pooled.var <- ((n1 - 1)* rowV1 + (n2 - 1)* rowV2)/ (n1 + n2 - 2)
   pooled.var <- (rowV1/n1 + rowV2/n2)
   #Test <- (rowM1 - rowM2)/sqrt(pooled.var)
-  Test <- (rowM1 - rowM2)/sqrt(pooled.var)
-  Test <- ifelse(is.na(Test), 0 , Test)
+  Test <- ifelse(pooled.var == 0, 0 , (rowM1 - rowM2)/sqrt(pooled.var))
   ## Test statistics under H0
 
   Test_H0 <- permT(as.matrix(X),B-1,label)
   Test_H0 <- ifelse(is.na(Test_H0), 0 , Test_H0)
-  
+  Test_H0 <- ifelse(is.nan(Test_H0), 0 , Test_H0)
   if(!rand){
     
     gdl <- ((rowV1/n1 + rowV2/n2)^2)/((((rowV1/n1)^2)/(n1-1))+(((rowV2/n2)^2)/(n2-1)))

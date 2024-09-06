@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>intro</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">intro</h1>
+
+
+
+<div id="permutation-based-all-resolutions-inference" class="section level1">
+<h1>Permutation-based All-Resolutions Inference</h1>
+<div id="overview-of-the-method" class="section level2">
+<h2>Overview of the method</h2>
+<p><code>pARI</code> is an <em>R</em> package developed to a perform
+permutation-based closed testing method. It computes a simultaneous
+lower bound for the true discovery proportions of all possible subsets
+of a hypothesis testing problem.</p>
+<p><code>pARI</code> find the percentage of true discoveries for each
+set of statistical tests while controlling the familywise error rate for
+multiple testing and taking into account that the set was chosen in a
+data-driven way.</p>
+<p>Permutation theory adapts to the correlation structure, as a
+simultaneous method, it allows the decision of which hypotheses sets to
+analyze to be entirely <em>flexible</em> and <em>post-hoc</em>, that is,
+the user can choose it after seeing the data and revise the choice as
+often as he/she wants.</p>
+<p><code>pARI</code> is entirely mild, flexible, and post-hoc. The
+required input is the permutation p-values matrix, i.e., null p-values
+distribution, that describes the p-values associated with each feature’s
+statistical tests and permutation. <em>pARI</em> is valid if the
+exchangeability assumption under the null hypothesis is satisfied for
+the permutation procedure’s validity. If the permutation matrix is not
+available, the user can directly insert the data specifying the type of
+test to perform for each feature.</p>
+<p><code>pARI</code> for each set of features, i.e., clusters, returns
+the simultaneous lower confidence bound to the actual proportion of
+significant features. The analysis can be carried out as many times as
+the researcher wants; also, he/she can drill down into the cluster as
+often as the user wants without making any selection error and ensuring
+the family-wise error rate (FWER).</p>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>The <code>pARI</code> package can be installed by</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#devtools::install_github(&quot;angeella/pARI&quot;)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#install.packages(&quot;pARI&quot;)</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(pARI)</span></code></pre></div>
+<p>There are two main functions in the <code>pARI</code> package.</p>
+<p>The function <code>pARIbrain</code> was developed for the fMRI
+cluster analysis framework, while the function <code>pARI</code> was
+developed for every multiple-testing framework.</p>
+<div id="simulations" class="section level3">
+<h3>Simulations</h3>
+<p>We perform a simple simulation using the function
+<code>simulateData</code>. <span class="math inline">\(1000\)</span>
+features are generated <span class="math inline">\(30\)</span> times as
+normally distributed with mean <span class="math inline">\(0\)</span>
+under the null hypothesis and mean under the alternative computed
+considering the difference in means having the power of the one-sample
+t-test equals <span class="math inline">\(0.8\)</span>. The proportion
+of true null hypothesis equals <span class="math inline">\(\pi =
+0.8\)</span>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>datas <span class="ot">&lt;-</span> <span class="fu">simulateData</span>(<span class="at">pi0 =</span> <span class="fl">0.8</span>, <span class="at">m =</span> <span class="dv">1000</span>, <span class="at">n =</span> <span class="dv">30</span>, <span class="at">power =</span> <span class="fl">0.9</span>, <span class="at">rho =</span> <span class="fl">0.5</span>,<span class="at">seed =</span> <span class="dv">123</span>)</span></code></pre></div>
+<p><code>pARI</code> then computes the lower bound for the number of
+true discoveries inside the set containing the first <span class="math inline">\(200\)</span> features. The user must specify the
+cluster in the <code>ix</code> set, i.e., from <span class="math inline">\(1\)</span> to <span class="math inline">\(200\)</span> in this case. We apply the one-sample
+t-test for each feature.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">pARI</span>(<span class="at">X =</span> datas, <span class="at">ix =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>), <span class="at">test.type =</span> <span class="st">&quot;one_sample&quot;</span>, <span class="at">seed =</span> <span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>out<span class="sc">$</span>TDP</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; [1,] 0.68</span></span></code></pre></div>
+<p>Therefore, we can say that at least 68 of features are truly
+significant inside the <code>ix</code> cluster.</p>
+<p>However, the <code>pARI</code> function can analyzed directly the
+matrix of permuted p-values. We can compute it by <code>signTest</code>
+function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">signTest</span>(<span class="at">X =</span> datas, <span class="at">B =</span> <span class="dv">1000</span>, <span class="at">rand =</span> F)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">cbind</span>(out<span class="sc">$</span>pv, out<span class="sc">$</span>pv_H0)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">pARI</span>(<span class="at">pvalues =</span> P, <span class="at">ix =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>),<span class="at">test.type =</span> <span class="st">&quot;one_sample&quot;</span>)<span class="sc">$</span>TDP</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; [1,] 0.72</span></span></code></pre></div>
+<p>The set of features can also be expressed as a vector with length
+equals the number of features where different values indicate the
+different sets. For example, we can construct four random clusters
+as</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>ix <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> T)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">pARI</span>(<span class="at">pvalues =</span> P, <span class="at">ix =</span> ix,<span class="at">test.type =</span> <span class="st">&quot;one_sample&quot;</span>, <span class="at">clusters =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>TDP</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>out</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.1298701 0.1150794 0.1198502 0.1000000</span></span></code></pre></div>
+<p>specifying in the <code>pARI</code> function
+<code>cluster = TRUE</code>. Then, <code>pARI</code> returns the lower
+bound for the true discovery proportion for each set of features. We can
+say that we have at least 12.987013 of truly active features in the
+first cluster.</p>
+</div>
+<div id="gene-cluster-analysis" class="section level3">
+<h3>Gene cluster analysis</h3>
+<p>Let consider a simple example using Montgomery et al. (2010) and
+Pickrell et. al (2010) data, i.e., an expression set that combines two
+studies transcriptome genetics using second generation sequencing
+HapMap. The data comprises <span class="math inline">\(52580\)</span>
+genes and <span class="math inline">\(129\)</span> samples (i.e., <span class="math inline">\(60\)</span> unrelated Caucasian individuals of
+European descent and <span class="math inline">\(69\)</span> unrelated
+Nigerian individuals). After pre-processing steps, we perform a
+two-sample t-test for each gene, and we define the sets of interest the
+ones computed by the <code>hclust</code> function.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)){</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;dynamicTreeCut&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)){</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;dynamicTreeCut&quot;</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>}</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>    </span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#BiocManager::install(c(&quot;Biobase&quot;,&quot;genefilter&quot;, &quot;EnrichmentBrowser&quot;))</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="fu">library</span>(Biobase)</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="fu">library</span>(genefilter)</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="fu">library</span>(dynamicTreeCut)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="fu">url</span>(<span class="st">&quot;http://bowtie-bio.sourceforge.net/recount/ExpressionSets/montpick_eset.RData&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>pdata<span class="ot">&lt;-</span> <span class="fu">pData</span>(montpick.eset)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>edata <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">exprs</span>(montpick.eset))</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>fdata <span class="ot">&lt;-</span> <span class="fu">fData</span>(montpick.eset)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>edata <span class="ot">&lt;-</span> <span class="fu">log2</span>(<span class="fu">as.matrix</span>(edata) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>edata <span class="ot">&lt;-</span> edata[<span class="fu">rowMeans</span>(edata) <span class="sc">&gt;</span> <span class="dv">10</span>, ]</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>my.dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(edata)</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>my.tree <span class="ot">&lt;-</span> <span class="fu">hclust</span>(my.dist, <span class="at">method=</span><span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>my.clusters <span class="ot">&lt;-</span> <span class="fu">unname</span>(<span class="fu">cutreeDynamic</span>(my.tree, <span class="at">distM=</span><span class="fu">as.matrix</span>(my.dist),<span class="at">minClusterSize=</span><span class="dv">10</span>))</span></code></pre></div>
+<p>Having the data <code>edata</code> with labels referring to the type
+of population, we use <code>pARI</code> considering as <code>ix</code>
+the hierarchical cluster analysis output.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>out <span class="ot">&lt;-</span><span class="fu">pARI</span>(<span class="at">X =</span> edata,<span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">test.type =</span> <span class="st">&quot;two_samples&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">as.factor</span>(pdata<span class="sc">$</span>population),</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>           <span class="at">ix =</span> my.clusters, <span class="at">family =</span> <span class="st">&quot;simes&quot;</span>, <span class="at">clusters =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>out<span class="sc">$</span>TDP</span></code></pre></div>
+<p>For each cluster computed by <code>hclust</code>, <code>pARI</code>
+returns the lower bound for the true discoveries proportion.</p>
+<p>Alternatively, you can use as clusters the pathways of genes from the
+<code>getGenesets</code> function:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>pathways <span class="ot">&lt;-</span> EnrichmentBrowser<span class="sc">::</span><span class="fu">getGenesets</span>(<span class="at">org =</span> <span class="st">&quot;hsa&quot;</span>, <span class="at">db =</span> <span class="st">&quot;kegg&quot;</span>, <span class="at">gene.id.type =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq</span>(pathways)){</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  </span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  ix <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">rownames</span>(edata) <span class="sc">%in%</span> pathways[[i]])</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(ix)<span class="sc">!=</span><span class="dv">0</span>){</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  out[i] <span class="ot">&lt;-</span><span class="fu">pARI</span>(<span class="at">X =</span> edata,<span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">test.type =</span> <span class="st">&quot;two_samples&quot;</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">as.factor</span>(pdata<span class="sc">$</span>population),</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>           <span class="at">ix =</span> ix, <span class="at">family =</span> <span class="st">&quot;simes&quot;</span>, <span class="at">clusters =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>TDP</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  out[i] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  }</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">TDP =</span> out, <span class="at">size =</span> <span class="fu">sapply</span>(<span class="fu">seq</span>(pathways), <span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">rownames</span>(edata) <span class="sc">%in%</span> pathways[[x]]))), <span class="at">name =</span> <span class="fu">names</span>(pathways))</span></code></pre></div>
+<p>So, we represent the lower confidence bounds for the proportion of
+differential expressed genes (TDP) inside each pathway in the following
+plot:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>db <span class="ot">&lt;-</span> db <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(TDP) <span class="sc">|</span> TDP<span class="sc">!=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(size <span class="sc">&gt;</span><span class="dv">10</span>) </span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>db<span class="sc">$</span>name <span class="ot">=</span> <span class="fu">factor</span>(db<span class="sc">$</span>name, <span class="at">levels=</span>db[<span class="fu">order</span>(db<span class="sc">$</span>TDP), <span class="st">&quot;name&quot;</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>db <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(TDP) <span class="sc">|</span> TDP<span class="sc">!=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(size <span class="sc">&gt;</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(TDP)<span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TDP, <span class="at">y =</span> name, <span class="at">size =</span> size)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(<span class="fu">bar</span>(pi)(S[m]))) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Pathways&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">size =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;|&quot;</span>, S, <span class="st">&quot;|&quot;</span>))) <span class="sc">+</span> <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">45</span>))</span></code></pre></div>
+<p>In this case, we filter out the pathways having less than <span class="math inline">\(10\)</span> genes to simply the plot.</p>
+</div>
+<div id="fmri-cluster-analysis" class="section level3">
+<h3>fMRI cluster analysis</h3>
+<p><code>pARI</code> is particularly useful in functional Magnetic
+Resonance Imaging cluster analysis, where it is of interest to select a
+cluster of voxels and to provide a confidence statement on the
+percentage of truly activated voxels within that cluster, avoiding the
+well-known spatial specificity paradox.</p>
+<p>We analyzed the Auditory data collected by Pernet et al. (2015),
+i.e., people listening vocal and non-vocal sounds.</p>
+<p>First, let download the data from the <code>fMRIdata</code>
+package:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&quot;fMRIdata&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)){</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;angeella/fMRIdata&quot;</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>}</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="fu">library</span>(fMRIdata)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="fu">data</span>(Auditory_clusterTH3_2)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">data</span>(Auditory_copes)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="fu">data</span>(Auditory_mask)</span></code></pre></div>
+<p>We have three ingredients:</p>
+<ol style="list-style-type: decimal">
+<li>The set of copes <code>Auditory_copes</code> as a list of
+<code>niftiImage</code> objects, one for each subject. The copes
+represent the <span class="math inline">\(3\)</span> dimensional (<span class="math inline">\(91 \times 109 \times 91\)</span>) contrast map.
+Each element of the array describes the estimated parameter used in the
+hypotheses. In this case, the copes represent the statistics maps
+regarding the contrast that describes the difference of neural
+activation during vocal and non-vocal stimuli for each participant,
+computed by FSL. The one-sample t-test is computed for each voxel to
+analyze the hypothesis of zero mean across the subjects, i.e.,</li>
+</ol>
+<p><span class="math display">\[
+H_0 : \mu_i = 0
+\]</span></p>
+<p>where <span class="math inline">\(\mu_i = \sum_{j = 1}^{J}
+copes_{ji}/J\)</span>, where <span class="math inline">\(J\)</span> is
+the total number of subjects.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>The cluster map <code>Auditory_clusterTH3_2</code> is used as a
+set of features in <code>pARIbrain</code>. While our method allows any
+method for forming clusters, we started from a map computed using Random
+Field Theory (RFT) with a cluster-forming-threshold equalling <span class="math inline">\(3.2\)</span>.</p></li>
+<li><p>The brain mask <code>Auditory_mask</code>. In this case, we
+extract it from the group-level analysis by FSL.</p></li>
+</ol>
+<p>Finally, <code>pARIbrain</code> can be used.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>auditory_out <span class="ot">&lt;-</span> <span class="fu">pARIbrain</span>(<span class="at">copes =</span> Auditory_copes, <span class="at">clusters =</span> Auditory_clusterTH3_2, <span class="at">mask =</span> Auditory_mask, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">silent =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>auditory_out<span class="sc">$</span>out</span></code></pre></div>
+<p>For each cluster, <code>pARIbrain</code> returns the lower bounds of
+the proportion of active voxels, the cluster’s size, the coordinates,
+and the maximum statistical test value inside the cluster.</p>
+<p>Finally, you can also produce the True Discovey Proportion brain map
+using the <code>map_TDP</code> function.</p>
+</div>
+</div>
+<div id="citing-pari" class="section level2">
+<h2>Citing pARI</h2>
+<p>If you use the <code>pARI</code> package, please cite the following
+paper:</p>
+<p>Andreella, A., Hemerik, J., Finos, L., Weeda, W., &amp; Goeman, J.
+(2023). Permutation-based true discovery proportions for functional
+magnetic resonance imaging cluster analysis. Statistics in Medicine,
+42(14), 2311-2340.</p>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

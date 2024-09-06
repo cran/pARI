@@ -5,7 +5,7 @@
 
 `pARI` is the package developed to compute the permutation-based All-Resolution Inference (ARI) method. Therefore, this method does not assume any distribution of the null distribution of the p-values. It needs to satisfy the exchangeability assumption as all permutation-based methods. For further details, please refers to Pesarin et al. (2010).
 
-Like parametric [ARI](https://www.sciencedirect.com/science/article/abs/pii/S105381191830675X?via%3Dihub), this method aims to compute simultaneous lower confidence bounds for the number of true discoveries, i.e., active voxels, in the fMRI framework. The function takes as input the list of copes, i.e., contrast maps, one for each subject, given by neuroimaging tools as FSL, SPM, etc. 
+Like parametric ARI, this method aims to compute simultaneous lower confidence bounds for the number of true discoveries, i.e., active voxels, in the fMRI framework. The function takes as input the list of copes, i.e., contrast maps, one for each subject, given by neuroimaging tools as FSL, SPM, etc. 
 
 With these data, you can insert a cluster map that can be the high-level output from some neuroimaging software, a region of interest (ROI), etc. If you want to construct these cluster maps using a supra-threshold statistic rule, you can specify the threshold into the function's argument ```thr```.
 
@@ -174,7 +174,7 @@ where X is the number of subjects. Then, you have the smoothness estimate value 
 
 Finally, the cluster.nii is the cluster map that you can use in ARI.
 
-For help about this FSL code, see [the FSL book code](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Cluster). 
+For help about this FSL code, see [the FSL book code](https://fsl.fmrib.ox.ac.uk/fsl/docs/#/statistics/cluster). 
 
 Finally, you can produce also the True Discovey Proportion brain map (type ```?pARI::map_TDP``` for more details):
 
@@ -200,13 +200,15 @@ res_ARI=ARIbrain::ARI(Pmap = Pmap, clusters= clstr, mask=mask, Statmap = Statmap
 ```
 # References
 
+Andreella, A., Hemerik, J., Finos, L., Weeda, W., & Goeman, J. (2023). Permutation-based true discovery proportions for functional magnetic resonance imaging cluster analysis. Statistics in Medicine.
+
 Rosenblatt, J. D., Finos, L., W., W. D., Solari, A., and Goeman, J. J. (2018). All-resolutions inference for brain imaging. NeuroImage, 181:786-796.
 
 Hemerik, J., Solari, A., and Goeman, J. J. (2019). Permutation-based simultaneous confidence bounds for the false discovery proportion. Biometrika, 106(3):635-649.
 
-Eklund, A., Nichols, E. T., and Knutsson, H. (2016). Cluster failure: Why fmri inferences for spatial extent have inflated false-positive rates. Pnas, 113(28):7900-7905.
+Eklund, A., Nichols, E. T., and Knutsson, H. (2016). Cluster failure: Why fMRI inferences for spatial extent have inflated false-positive rates. Pnas, 113(28):7900-7905.
 
 # Did you find some bugs?
 
-Please write to angela.andreella[\at]stat[\dot]unipd[\dot]it or insert a reproducible example using [reprex](https://github.com/tidyverse/reprex) on my [issue github page](https://github.com/angeella/pARI/issues).
+Please write to angela.andreella[\at]unive[\dot]it or insert a reproducible example using [reprex](https://github.com/tidyverse/reprex) on my [issue github page](https://github.com/angeella/pARI/issues).
 
