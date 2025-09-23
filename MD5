@@ -1,4 +1,4 @@
-62760a5507766493b1d925e8f2789e78 *DESCRIPTION
+0185df2beca442852267904e4d38dd91 *DESCRIPTION
 e5e0be88f47e3a1b9ec9c044779bdc1f *NAMESPACE
 88c45f2a29f61b4ef2c459dbcbe3f7d3 *NEWS.md
 ed68039deecb9c37071c952e730641aa *R/RcppExports.R
@@ -9,7 +9,7 @@ f671409d79b12235e2673326411b468b *R/dI.R
 d4eb16f26ea89bcb0355ca4d79b48df7 *R/discoveriesPerm.R
 bf26107ed070fc40c9bcee35aac6132b *R/get_array.R
 6b32bae00ba0a2a62ea3854e6ea2461f *R/kSingleStep.R
-bda8adfdae429eae2acd8195faffb6ca *R/lambdaOpt.R
+78a0b4617fd832b5bd500ad689831216 *R/lambdaOpt.R
 874d328fdd0357fb5820b6d9bdf50914 *R/map_TDP.R
 ad32cd3b8a780e7830810876347cb21b *R/oneSamplePar.R
 dbb803ab8e52eff67502303763ec854d *R/pARI-package.R
@@ -28,7 +28,7 @@ f187ff504fcb2060c1f6c8577da48ebd *R/summary_perm_roi.R
 c64c884f6fc2c88aaea05a84ef191359 *build/vignette.rds
 de3d34dd56f972fe90be050796b2e89f *inst/doc/intro.R
 156e2c1221f8d65e28ea6a1b196a446c *inst/doc/intro.Rmd
-14d69403b951d3930e6cba07d2d0c9e0 *inst/doc/intro.html
+cc1f2cec32f5718d52c61384581e68d5 *inst/doc/intro.html
 995c603aa2e3e5799abec64f79a27718 *man/Statmap.Rd
 e3052a0545139c7ea9fa179fe064fa93 *man/criticalVector.Rd
 5954069eae0effa87fac62140255f368 *man/dI.Rd
@@ -42,11 +42,11 @@ e3de2fdfc64e886c234f58ee87621b70 *man/plotNullDistribution.Rd
 fb6c0f395dc795c5fbe2e8f6cb865b17 *man/signTest.Rd
 abd5475a73398e79b0d22bdb92ecdbad *man/simulateData.Rd
 04727a63a66cd4cd2704c0fcbd81f0c7 *man/simulateSpatialData.Rd
-11be546fd47bf603b8924f363af82d48 *src/Makevars
-537c71939fbf30a0de7241473479fdbf *src/Makevars.win
+0cbad133b2729f08632373e0561a7632 *src/Makevars
+1f399255f8d0c33b9d67db64792a50c1 *src/Makevars.win
 9b458d46e09d10cc347e128cf772f799 *src/RcppExports.cpp
 91cc456b562b6c347bada0aa0489bc3d *src/colSortC.cpp
-74ffcc30838c780e98636f375ee450bb *src/lambdaCalibrate.cpp
+591758beffcd2918fde4c75f3bf1ab0b *src/lambdaCalibrate.cpp
 51071a127722d9609d7e27a6d97f6de0 *src/permDiscoveries.cpp
 d0fb869fbd11ce045e0a6ae0b66d78db *src/permTest.cpp
 5f7b346f16959a06b05e08f4c9efb6bd *src/rowSortC.cpp
